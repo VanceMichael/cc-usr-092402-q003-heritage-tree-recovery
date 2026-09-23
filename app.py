@@ -1,10 +1,3 @@
-from flask import Flask, jsonify
-import sqlite3
+from sentinel import create_app
 
-app = Flask(__name__)
-
-@app.get("/health")
-def health():
-    with sqlite3.connect("data/app.db") as db:
-        db.execute("select 1")
-    return jsonify(status="ok")
+app = create_app()
